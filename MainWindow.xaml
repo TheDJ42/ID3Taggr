@@ -17,6 +17,7 @@
                         <KeyBinding Key="Esc"/>
                     </MenuItem.InputBindings>
                 </MenuItem>
+            </MenuItem>
             <MenuItem Header="Edit">
                 <MenuItem Header="Cut" ToolTip="Ctrl-X"/>
                 <MenuItem Header="Copy" ToolTip="Ctrl-C"/>
