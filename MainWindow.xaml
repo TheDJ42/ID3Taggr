@@ -25,6 +25,12 @@
                 <MenuItem Header="Undo" ToolTip="Ctrl-Z"/>
                 <MenuItem Header="Redo" ToolTip="Ctrl-Y"/>
             </MenuItem>
+            <MenuItem Header="&Help">
+                    <MenuItem Header="About" HorizontalAlignment="Left" Width="145"/>
+            </MenuItem>            
+                   
+                
+            
 
 
         </Menu>
