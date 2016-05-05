@@ -9,15 +9,20 @@
     <Grid>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="Open" HorizontalAlignment="Left" Width="145"/>
+            <MenuItem Header="Open" HorizontalAlignment="Left" Width="145"/>
                 <MenuItem Header="Save" HorizontalAlignment="Left" Width="145"/>
                 <MenuItem Header="Save As" HorizontalAlignment="Left" Width="145"/>
-                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="145" ToolTip="Ctr-Shift-E" Click="MenuItem_Click"/>
-            </MenuItem>
+                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="145" ToolTip="Esc" Click="MenuItem_Click">
+                    <MenuItem.InputBindings>
+                        <KeyBinding Key="Esc"/>
+                    </MenuItem.InputBindings>
+                </MenuItem>
             <MenuItem Header="Edit">
-                <MenuItem Header="Cut"/>
-                <MenuItem Header="Copy"/>
-                <MenuItem Header="Paste"/>
+                <MenuItem Header="Cut" ToolTip="Ctrl-X"/>
+                <MenuItem Header="Copy" ToolTip="Ctrl-C"/>
+                <MenuItem Header="Paste" ToolTip="Ctrl-V"/>
+                <MenuItem Header="Undo" ToolTip="Ctrl-Z"/>
+                <MenuItem Header="Redo" ToolTip="Ctrl-Y"/>
             </MenuItem>
 
 
