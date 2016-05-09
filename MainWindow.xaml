@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ID3TaggrV0.1" Height="396.364" Width="661.364">
     <Grid>
-        <Menu x:Name="menu" DockPanel.Dock="Top" Height="20" Margin="0,0,0,346">
+        <Menu x:Name="menu" DockPanel.Dock="Top" Margin="0,0,0,339">
             <MenuItem Header="_File">
                 <MenuItem Header="Open" HorizontalAlignment="Left" Width="145"/>
                 <MenuItem Header="Save" HorizontalAlignment="Left" Width="145"/>
@@ -25,7 +25,7 @@
                 <MenuItem Header="About" HorizontalAlignment="Left" Width="145"/>
             </MenuItem>
         </Menu>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="334" Margin="0,32,0,0" VerticalAlignment="Top" Width="296">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="334" Margin="0,27,0,0" VerticalAlignment="Top" Width="296">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Track" DisplayMemberBinding="{Binding Id}"/>
@@ -33,5 +33,22 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBlock x:Name="albumNameText" HorizontalAlignment="Left" Margin="327,40,0,0" TextWrapping="Wrap" Text="Name of Album" VerticalAlignment="Top" Width="289" Height="41" FontWeight="Bold" FontSize="24"/>
+        <TextBlock x:Name="trackCountText" HorizontalAlignment="Left" Margin="327,81,0,0" TextWrapping="Wrap" Text="Tracks: " VerticalAlignment="Top" Width="79" FontSize="13.333"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="327,114,0,0" TextWrapping="Wrap" Text="Title: " VerticalAlignment="Top" Height="20" Width="36" FontSize="13.333"/>
+        <TextBox x:Name="songTitleText" HorizontalAlignment="Left" Height="23" Margin="385,111,0,0" Text="" VerticalAlignment="Top" Width="162" SpellCheck.IsEnabled="True" FontSize="13.333" ToolTip="Title of the Track"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="327,155,0,0" TextWrapping="Wrap" Text="Artist: " VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="artistText" HorizontalAlignment="Left" Height="23" Margin="385,153,0,0" Text="" VerticalAlignment="Top" Width="162" SpellCheck.IsEnabled="True" FontSize="13.333" ToolTip="Name of the Artist"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="327,192,0,0" TextWrapping="Wrap" Text="Album: " VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="albumText" HorizontalAlignment="Left" Height="23" Margin="385,192,0,0" Text="" VerticalAlignment="Top" Width="162" SpellCheck.IsEnabled="True" FontSize="13.333" ToolTip="Name of the Album"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="327,235,0,0" TextWrapping="Wrap" Text="Year: " VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="yearText" HorizontalAlignment="Left" Height="23" Margin="364,233,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" MaxLength="4" ToolTip="Year the album was released"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="439,235,0,0" TextWrapping="Wrap" Text="Genre: " VerticalAlignment="Top" FontSize="13.333" />
+        <TextBox x:Name="genreText" HorizontalAlignment="Left" Height="23" Margin="486,233,0,0" Text="" VerticalAlignment="Top" Width="130" FontSize="13.333" ToolTip="Genre of the Album"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="387,281,0,0" TextWrapping="Wrap" Text="Disc: " VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="discNum" HorizontalAlignment="Left" Height="23" Margin="423,278,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="25" MaxLength="2" ToolTip="Disc Number"/>
+        <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="471,281,0,0" TextWrapping="Wrap" Text="Track: " VerticalAlignment="Top" FontSize="13.333"/>
+        <TextBox x:Name="trackNum" HorizontalAlignment="Left" Height="23" Margin="514,278,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="25" MaxLength="2" ToolTip="Track Number"/>
+
     </Grid>
 </Window>

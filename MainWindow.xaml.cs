@@ -23,11 +23,31 @@ namespace ID3Taggr
         public MainWindow()
         {
             InitializeComponent();
+            
+
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void AlbumNameDetect()
+        {
+            //This should check existing ID3 tags for album name
+
+            //If there's an ID3 tag for Album name present, it should update the box
+
+                        
+            //if (albumText.Text == "")
+            //{
+            //    albumNameText.Text = "Name of Album";
+            //}
+            //else
+            //{
+            //    albumNameText.Text = albumText.Text;
+            //}
         }
     }
 }
