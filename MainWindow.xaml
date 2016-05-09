@@ -7,16 +7,12 @@
         mc:Ignorable="d"
         Title="ID3TaggrV0.1" Height="396.364" Width="661.364">
     <Grid>
-        <Menu DockPanel.Dock="Top">
+        <Menu x:Name="menu" DockPanel.Dock="Top" Height="20" Margin="0,0,0,346">
             <MenuItem Header="_File">
-            <MenuItem Header="Open" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem Header="Open" HorizontalAlignment="Left" Width="145"/>
                 <MenuItem Header="Save" HorizontalAlignment="Left" Width="145"/>
                 <MenuItem Header="Save As" HorizontalAlignment="Left" Width="145"/>
-                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="145" ToolTip="Esc" Click="MenuItem_Click">
-                    <MenuItem.InputBindings>
-                        <KeyBinding Key="Esc"/>
-                    </MenuItem.InputBindings>
-                </MenuItem>
+                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="145" ToolTip="Esc" Click="MenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Edit">
                 <MenuItem Header="Cut" ToolTip="Ctrl-X"/>
@@ -25,15 +21,17 @@
                 <MenuItem Header="Undo" ToolTip="Ctrl-Z"/>
                 <MenuItem Header="Redo" ToolTip="Ctrl-Y"/>
             </MenuItem>
-            <MenuItem Header="&Help">
-                    <MenuItem Header="About" HorizontalAlignment="Left" Width="145"/>
-            </MenuItem>            
-                   
-                
-            
-
-
+            <MenuItem Header="Help">
+                <MenuItem Header="About" HorizontalAlignment="Left" Width="145"/>
+            </MenuItem>
         </Menu>
-
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="334" Margin="0,32,0,0" VerticalAlignment="Top" Width="296">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Track" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Id}" Width="250"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
