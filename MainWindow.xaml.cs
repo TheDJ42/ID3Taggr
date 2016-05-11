@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using Microsoft.Win32;
+using TagLib;
 
 namespace ID3Taggr
 {
@@ -53,7 +55,8 @@ namespace ID3Taggr
 
         private void NumOnly(TextCompositionEventArgs e)
         {
-            //Put in PreviewTextInput property for a textbox
+            // Put in PreviewTextInput property for a textbox
+            // Uses Regex to determine whether or not the value entered is an int
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
@@ -72,5 +75,39 @@ namespace ID3Taggr
         {
             NumOnly(e);
         }
+
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of the open file dialog box.
+            Microsoft.Win32.OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            // Set filter options and filter index.
+            openFileDialog1.Filter = "mp3 Files (.mp3)|*.mp3|All Files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+
+            openFileDialog1.Multiselect = true;
+
+            // Call the ShowDialog method to show the dialog box.
+            bool? userClickedOK = openFileDialog1.ShowDialog();
+
+            // Process input if the user clicked OK.
+            if (userClickedOK == true)
+            {
+                string[] fileNames = openFileDialog1.FileNames;
+                for (int i = 0; i < fileNames.Length; i++)
+                {
+                    string file = fileNames[i];
+                    mp3Files.Items.Add(new ListViewItem(fileNames[]{"i", "file"}));
+                }
+            }
+        }
+
+        //public void TagLibTag(string song, string songFileName)
+        //{
+
+        //}
+
+
     }
 }
