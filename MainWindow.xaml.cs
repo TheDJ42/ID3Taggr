@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace ID3Taggr
 {
@@ -48,6 +49,28 @@ namespace ID3Taggr
             //{
             //    albumNameText.Text = albumText.Text;
             //}
+        }
+
+        private void NumOnly(TextCompositionEventArgs e)
+        {
+            //Put in PreviewTextInput property for a textbox
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void yearText_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            NumOnly(e);
+        }
+
+        private void discNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            NumOnly(e);
+        }
+
+        private void trackNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            NumOnly(e);
         }
     }
 }
