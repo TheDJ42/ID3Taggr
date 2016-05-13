@@ -42,14 +42,14 @@ namespace ID3Taggr
 
             //If there's an ID3 tag for Album name present, it should update the box
 
-                        
+
             //if (albumText.Text == "")
             //{
             //    albumNameText.Text = "Name of Album";
             //}
             //else
             //{
-            //    albumNameText.Text = albumText.Text;
+            //    albumNameText.Text = file.Tag.Album;
             //}
         }
 
@@ -94,11 +94,12 @@ namespace ID3Taggr
             // Process input if the user clicked OK.
             if (userClickedOK == true)
             {
-                string[] fileNames = openFileDialog1.FileNames;
-                for (int i = 0; i < fileNames.Length; i++)
+                string[] files = openFileDialog1.FileNames;
+                foreach (string file in files)
                 {
-                    string file = fileNames[i];
-                    mp3Files.Items.Add(new ListViewItem(fileNames[]{"i", "file"}));
+                    Mp3File mp3f = new Mp3File(file);
+
+                    mp3Files.Items.Add(mp3f);
                 }
             }
         }

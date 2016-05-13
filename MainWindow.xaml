@@ -28,8 +28,8 @@
         <ListView x:Name="mp3Files" HorizontalAlignment="Left" Height="334" Margin="0,27,0,0" VerticalAlignment="Top" Width="296">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Track" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Id}" Width="250"/>
+                    <GridViewColumn Header="Track" DisplayMemberBinding="{Binding Track}"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="250"/>
                 </GridView>
             </ListView.View>
         </ListView>
