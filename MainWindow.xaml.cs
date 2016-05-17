@@ -26,7 +26,7 @@ namespace ID3Taggr
         public MainWindow()
         {
             InitializeComponent();
-            
+                        
 
 
         }
@@ -36,22 +36,12 @@ namespace ID3Taggr
             this.Close();
         }
 
-        private void AlbumNameDetect()
+        
+        private void TracksDetect()
         {
-            //This should check existing ID3 tags for album name
-
-            //If there's an ID3 tag for Album name present, it should update the box
-
-
-            //if (albumText.Text == "")
-            //{
-            //    albumNameText.Text = "Name of Album";
-            //}
-            //else
-            //{
-            //    albumNameText.Text = file.Tag.Album;
-            //}
+            //trackCountText.Text = "Tracks: " + Convert.ToString(Count);
         }
+       
 
         private void NumOnly(TextCompositionEventArgs e)
         {
@@ -100,15 +90,19 @@ namespace ID3Taggr
                     Mp3File mp3f = new Mp3File(file);
 
                     mp3Files.Items.Add(mp3f);
+
+                    //TracksDetect();
+
                 }
             }
         }
 
-        //public void TagLibTag(string song, string songFileName)
-        //{
-
-        //}
-
-
+        private void mp3Files_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Mp3File mf = (Mp3File)mp3Files.SelectedItem;
+            // When Clicking on different items in the listview
+            // the Items in the textbox will update accordingly 
+            songTitleText.Text = mf.Title;
+        }
     }
 }
