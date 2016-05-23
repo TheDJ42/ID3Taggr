@@ -11,11 +11,19 @@ namespace ID3Taggr
         public string Title { get; set; }
 
         public uint Track { get; set; }
-        
+
+        public uint Year { get; set; }
+
+
         public string Artist { get; set; }
 
         public string Album { get; set; }
 
+        public string Genre { get; set; }
+
+        public uint Disc { get; set; }
+
+  
 
         public Mp3File(String fileName)
         {
@@ -24,6 +32,21 @@ namespace ID3Taggr
             Title = file.Tag.Title;
 
             Track = file.Tag.Track;
+
+            Year = file.Tag.Year;
+
+            Disc = file.Tag.Disc;
+
+            string[] genre = file.Tag.Genres;
+
+            if (genre != null && genre.Length > 0)
+            {
+                Genre = genre[0];
+            }
+            else
+            {
+                Genre = "";
+            }
 
             string[] artists = file.Tag.AlbumArtists;
 

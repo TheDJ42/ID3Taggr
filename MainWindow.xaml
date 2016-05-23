@@ -33,14 +33,14 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBlock x:Name="albumNameText" HorizontalAlignment="Left" Margin="327,40,0,0" TextWrapping="Wrap" Text="Name of Album" VerticalAlignment="Top" Width="289" Height="41" FontWeight="Bold" FontSize="24"/>
+        <TextBlock x:Name="programTitle" HorizontalAlignment="Left" Margin="399,35,0,0" TextWrapping="Wrap" Text="ID3Taggr" VerticalAlignment="Top" Width="110" Height="41" FontWeight="Bold" FontSize="24"/>
         <TextBlock x:Name="trackCountText" HorizontalAlignment="Left" Margin="327,81,0,0" TextWrapping="Wrap" Text="Tracks: " VerticalAlignment="Top" Width="79" FontSize="13.333"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="327,114,0,0" TextWrapping="Wrap" Text="Title: " VerticalAlignment="Top" Height="20" Width="36" FontSize="13.333"/>
-        <TextBox x:Name="songTitleText" HorizontalAlignment="Left" Height="23" Margin="385,111,0,0" Text="" VerticalAlignment="Top" Width="162" SpellCheck.IsEnabled="True" FontSize="13.333" ToolTip="Title of the Track"/>
+        <TextBox x:Name="songTitleText" HorizontalAlignment="Left" Height="23" Margin="385,111,0,0" Text="" VerticalAlignment="Top" Width="162" SpellCheck.IsEnabled="True" FontSize="13.333" ToolTip="Title of the Track" TextChanged="songTitleText_TextChanged"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="327,155,0,0" TextWrapping="Wrap" Text="Artist: " VerticalAlignment="Top" FontSize="13.333"/>
         <TextBox x:Name="artistText" HorizontalAlignment="Left" Height="23" Margin="385,153,0,0" Text="" VerticalAlignment="Top" Width="162" SpellCheck.IsEnabled="True" FontSize="13.333" ToolTip="Name of the Artist"/>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="327,192,0,0" TextWrapping="Wrap" Text="Album: " VerticalAlignment="Top" FontSize="13.333"/>
-        <TextBox x:Name="albumText" HorizontalAlignment="Left" Height="23" Margin="385,192,0,0" Text="" VerticalAlignment="Top" Width="162" SpellCheck.IsEnabled="True" FontSize="13.333" ToolTip="Name of the Album"/>
+        <TextBox x:Name="albumText" HorizontalAlignment="Left" Height="23" Margin="385,192,0,0" Text="" VerticalAlignment="Top" Width="162" SpellCheck.IsEnabled="True" FontSize="13.333" ToolTip="Name of the Album" TextChanged="albumText_TextChanged"/>
         <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="327,235,0,0" TextWrapping="Wrap" Text="Year: " VerticalAlignment="Top" FontSize="13.333"/>
         <TextBox x:Name="yearText" HorizontalAlignment="Left" Height="23" Margin="364,233,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" MaxLength="4" ToolTip="Year the album was released" PreviewTextInput="yearText_PreviewTextInput"/>
         <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="439,235,0,0" TextWrapping="Wrap" Text="Genre: " VerticalAlignment="Top" FontSize="13.333" />

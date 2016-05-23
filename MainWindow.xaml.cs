@@ -39,7 +39,8 @@ namespace ID3Taggr
         
         private void TracksDetect()
         {
-            //trackCountText.Text = "Tracks: " + Convert.ToString(Count);
+            //int count = mp3Files.
+            //trackCountText.Text = "Tracks: " + Convert.ToString(count);
         }
        
 
@@ -91,18 +92,38 @@ namespace ID3Taggr
 
                     mp3Files.Items.Add(mp3f);
 
-                    //TracksDetect();
+                    TracksDetect();
 
                 }
             }
         }
 
+        Mp3File mf = null;
+
         private void mp3Files_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Mp3File mf = (Mp3File)mp3Files.SelectedItem;
+            mf = (Mp3File)mp3Files.SelectedItem;
             // When Clicking on different items in the listview
             // the Items in the textbox will update accordingly 
             songTitleText.Text = mf.Title;
+            artistText.Text = mf.Artist;
+            yearText.Text = Convert.ToString(mf.Year);
+            genreText.Text = mf.Genre;
+            discNum.Text = Convert.ToString(mf.Disc);
+            trackNum.Text = Convert.ToString(mf.Track);
+
+
+
+        }
+
+        private void albumText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+        }
+
+        private void songTitleText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mf.Title = songTitleText.Text;
+
         }
     }
 }
