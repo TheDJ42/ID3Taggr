@@ -119,7 +119,7 @@ namespace ID3Taggr
 
         private void albumText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            mf.album = albumText.Text
+            mf.album = albumText.Text;
         }
 
         private void songTitleText_TextChanged(object sender, TextChangedEventArgs e)
@@ -130,13 +130,29 @@ namespace ID3Taggr
         
         private void artistTitleText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            mf.Artist = artistTitleText.Text;
+            mf.Artist = artistText.Text;
 
         }
-        private void yearTitleText_TextChanged(object sender, TextChangedEventArgs e)
+        private void yearText_TextChanged(object sender, TextChangedEventArgs e)
         {
             mf.Title = Convert.ToInt32(yearTitleText.Text);
 
         }
+        
+        private void genreText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+          mf.Genre = genreText.Text;
+        }
+        
+        private void discNum_TextChanged(object sender, TextChangedEventArgs e)
+        {
+          mf.Disc = Convert.ToUInt32(discNum.Text);
+        }
+        
+        private void trackNum_TextChanged(object sender, TextChangedEventArgs e)
+        {
+          mf.Track = Convert.ToUInt32(trackNum.Text);
+        }
+        
     }
 }
