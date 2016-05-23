@@ -10,7 +10,7 @@
         <Menu x:Name="menu" DockPanel.Dock="Top" Margin="0,0,0,339">
             <MenuItem Header="_File">
                 <MenuItem Header="Open" HorizontalAlignment="Left" Width="145" Click="MenuItem_Click_1"/>
-                <MenuItem Header="Save" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem Header="Save" HorizontalAlignment="Left" Width="145" Click="Save_Click"/>
                 <MenuItem Header="Exit" HorizontalAlignment="Left" Width="145" ToolTip="Esc" Click="MenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Edit">

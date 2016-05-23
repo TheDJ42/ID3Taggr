@@ -35,6 +35,22 @@ namespace ID3Taggr
         {
             this.Close();
         }
+        
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+          foreach(file in mp3Files)
+          {
+            tagFile.Tag.Title = songTitleText.Text;
+            tagFile.Tag.Artist = artistText.Text;
+            tagFile.Tag.Album = albumText.Text;
+            tagFile.Tag.Year = Convert.ToUInt32(yearText.Text);
+            tagFile.Tag.Genre = genreText.Text;
+            tagFile.Tag.Track = Convert.ToUInt32(trackNum.Text);
+            tagFile.Tag.Disc = Convert.ToUInt32(discNum.Text);
+            tagFile.Save();
+          }
+        }
+    
 
         
         private void TracksDetect()
