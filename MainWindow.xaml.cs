@@ -123,7 +123,7 @@ namespace ID3Taggr
             // the Items in the textbox will update accordingly 
             songTitleText.Text = mf.Title;
             artistText.Text = mf.Artist;
-            albumText.Text = mf.Album
+            albumText.Text = mf.Album;
             yearText.Text = Convert.ToString(mf.Year);
             genreText.Text = mf.Genre;
             discNum.Text = Convert.ToString(mf.Disc);
@@ -135,7 +135,7 @@ namespace ID3Taggr
 
         private void albumText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            mf.album = albumText.Text;
+            mf.Album = albumText.Text;
         }
 
         private void songTitleText_TextChanged(object sender, TextChangedEventArgs e)
@@ -151,7 +151,7 @@ namespace ID3Taggr
         }
         private void yearText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            mf.Title = Convert.ToInt32(yearTitleText.Text);
+            mf.Year = Convert.ToUInt32(yearText.Text);
 
         }
         
