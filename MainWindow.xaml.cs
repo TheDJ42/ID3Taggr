@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
 using TagLib;
+using System.IO;
 
 namespace ID3Taggr
 {
@@ -28,31 +29,47 @@ namespace ID3Taggr
             InitializeComponent();
                         
 
-
+            
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-          foreach(file in mp3Files)
-          {
-            tagFile.Tag.Title = songTitleText.Text;
-            tagFile.Tag.Artist = artistText.Text;
-            tagFile.Tag.Album = albumText.Text;
-            tagFile.Tag.Year = Convert.ToUInt32(yearText.Text);
-            tagFile.Tag.Genre = genreText.Text;
-            tagFile.Tag.Track = Convert.ToUInt32(trackNum.Text);
-            tagFile.Tag.Disc = Convert.ToUInt32(discNum.Text);
-            tagFile.Save();
-          }
-        }
-    
+            foreach (Mp3File file in mp3Files.Items)
+            {
+                file.Album = mf.Album;
+                file.Title = mf.Title;
+                file.Year = mf.Year;
+                file.Genre = mf.Genre;
+                file.Disc = mf.Disc;
+                file.Track = mf.Track;
+                //Saves the file
 
+                //configure save file dialog box
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.DefaultExt = ".mp3"; //default file extension
+                dlg.Filter = "mp3 Files (.mp3)|*.mp3"; //filter files by extension
+
+                // Show save file dialog box
+                Nullable<bool> result = dlg.ShowDialog();
+
+                // Process save file dialog box results
+                if (result == true)
+                {
+                    // Save document
+                    string filename = dlg.FileName;
+                }
+
+            }
+        }
         
+
+
+
         private void TracksDetect()
         {
             //int count = mp3Files.
@@ -162,7 +179,9 @@ namespace ID3Taggr
         
         private void discNum_TextChanged(object sender, TextChangedEventArgs e)
         {
+          
           mf.Disc = Convert.ToUInt32(discNum.Text);
+          
         }
         
         private void trackNum_TextChanged(object sender, TextChangedEventArgs e)
