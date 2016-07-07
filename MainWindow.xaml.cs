@@ -27,9 +27,9 @@ namespace ID3Taggr
         public MainWindow()
         {
             InitializeComponent();
-                        
 
-            
+
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -53,6 +53,7 @@ namespace ID3Taggr
                 Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
                 dlg.DefaultExt = ".mp3"; //default file extension
                 dlg.Filter = "mp3 Files (.mp3)|*.mp3"; //filter files by extension
+                dlg.CheckFileExists = true;
 
                 // Show save file dialog box
                 Nullable<bool> result = dlg.ShowDialog();
@@ -61,12 +62,33 @@ namespace ID3Taggr
                 if (result == true)
                 {
                     // Save document
-                    string filename = dlg.FileName;
+                    TagLib.File f = TagLib.File.Create(dlg.FileName);
+
+                    f.Tag.Album = mf.Album;
+                    f.Tag.Title = mf.Title;
+                    f.Tag.Year = mf.Year;
+                    f.Tag.Genres = new string[] { mf.Genre };
+                    f.Tag.Disc = mf.Disc;
+                    f.Tag.Track = mf.Track;
+                    f.Tag.AlbumArtists = new string[] { mf.Artist }; 
+                   
+                    // NOTE: Album does not appear to be filled into the text field.  Maybe others too?
+
+                    // Write the file
+                    try
+                    {
+                        f.Save();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Error
+                        MessageBox.Show(ex.Message);
+                    }
                 }
 
             }
         }
-        
+
 
 
 
@@ -75,7 +97,7 @@ namespace ID3Taggr
             //int count = mp3Files.
             //trackCountText.Text = "Tracks: " + Convert.ToString(count);
         }
-       
+
 
         private void NumOnly(TextCompositionEventArgs e)
         {
@@ -160,7 +182,7 @@ namespace ID3Taggr
             mf.Title = songTitleText.Text;
 
         }
-        
+
         private void artistTitleText_TextChanged(object sender, TextChangedEventArgs e)
         {
             mf.Artist = artistText.Text;
@@ -168,26 +190,65 @@ namespace ID3Taggr
         }
         private void yearText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            mf.Year = Convert.ToUInt32(yearText.Text);
-
+            if (yearText.Text == null || yearText.Text == "")
+            {
+                mf.Year = 0;
+            }
+            else
+            {
+                try
+                {
+                    mf.Year = Convert.ToUInt32(yearText.Text);
+                }
+                catch
+                {
+                    mf.Year = 0;
+                }
+            }
         }
-        
+
         private void genreText_TextChanged(object sender, TextChangedEventArgs e)
         {
-          mf.Genre = genreText.Text;
+            mf.Genre = genreText.Text;
         }
-        
+
         private void discNum_TextChanged(object sender, TextChangedEventArgs e)
         {
-          
-          mf.Disc = Convert.ToUInt32(discNum.Text);
-          
+            if (discNum.Text == null || discNum.Text == "")
+            {
+                mf.Disc = 0;
+            }
+            else
+            {
+                try
+                {
+                    mf.Disc = Convert.ToUInt32(discNum.Text);
+                }
+                catch
+                {
+                    mf.Disc = 0;
+                }
+            }
         }
-        
+
         private void trackNum_TextChanged(object sender, TextChangedEventArgs e)
         {
-          mf.Track = Convert.ToUInt32(trackNum.Text);
+            if (trackNum.Text == null || trackNum.Text == "")
+            {
+                mf.Track = 0;
+            }
+            else
+            {
+                try
+                {
+                    mf.Track = Convert.ToUInt32(trackNum.Text);
+                }
+                catch
+                {
+                    mf.Track = 0;
+                }
+            }
         }
-        
+
     }
 }
