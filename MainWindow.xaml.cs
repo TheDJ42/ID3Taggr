@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
 using TagLib;
+using System.IO;
 
 namespace ID3Taggr
 {
@@ -26,7 +27,7 @@ namespace ID3Taggr
         public MainWindow()
         {
             InitializeComponent();
-                        
+
 
 
         }
@@ -36,13 +37,67 @@ namespace ID3Taggr
             this.Close();
         }
 
-        
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Mp3File file in mp3Files.Items)
+            {
+                file.Album = mf.Album;
+                file.Title = mf.Title;
+                file.Year = mf.Year;
+                file.Genre = mf.Genre;
+                file.Disc = mf.Disc;
+                file.Track = mf.Track;
+                //Saves the file
+
+                //configure save file dialog box
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                dlg.DefaultExt = ".mp3"; //default file extension
+                dlg.Filter = "mp3 Files (.mp3)|*.mp3"; //filter files by extension
+                dlg.CheckFileExists = true;
+
+                // Show save file dialog box
+                Nullable<bool> result = dlg.ShowDialog();
+
+                // Process save file dialog box results
+                if (result == true)
+                {
+                    // Save document
+                    TagLib.File f = TagLib.File.Create(dlg.FileName);
+
+                    f.Tag.Album = mf.Album;
+                    f.Tag.Title = mf.Title;
+                    f.Tag.Year = mf.Year;
+                    f.Tag.Genres = new string[] { mf.Genre };
+                    f.Tag.Disc = mf.Disc;
+                    f.Tag.Track = mf.Track;
+                    f.Tag.AlbumArtists = new string[] { mf.Artist }; 
+                   
+                    // NOTE: Album does not appear to be filled into the text field.  Maybe others too?
+
+                    // Write the file
+                    try
+                    {
+                        f.Save();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Error
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            }
+        }
+
+
+
+
         private void TracksDetect()
         {
             //int count = mp3Files.
             //trackCountText.Text = "Tracks: " + Convert.ToString(count);
         }
-       
+
 
         private void NumOnly(TextCompositionEventArgs e)
         {
@@ -107,6 +162,7 @@ namespace ID3Taggr
             // the Items in the textbox will update accordingly 
             songTitleText.Text = mf.Title;
             artistText.Text = mf.Artist;
+            albumText.Text = mf.Album;
             yearText.Text = Convert.ToString(mf.Year);
             genreText.Text = mf.Genre;
             discNum.Text = Convert.ToString(mf.Disc);
@@ -118,6 +174,7 @@ namespace ID3Taggr
 
         private void albumText_TextChanged(object sender, TextChangedEventArgs e)
         {
+            mf.Album = albumText.Text;
         }
 
         private void songTitleText_TextChanged(object sender, TextChangedEventArgs e)
@@ -125,5 +182,73 @@ namespace ID3Taggr
             mf.Title = songTitleText.Text;
 
         }
+
+        private void artistTitleText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mf.Artist = artistText.Text;
+
+        }
+        private void yearText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (yearText.Text == null || yearText.Text == "")
+            {
+                mf.Year = 0;
+            }
+            else
+            {
+                try
+                {
+                    mf.Year = Convert.ToUInt32(yearText.Text);
+                }
+                catch
+                {
+                    mf.Year = 0;
+                }
+            }
+        }
+
+        private void genreText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mf.Genre = genreText.Text;
+        }
+
+        private void discNum_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (discNum.Text == null || discNum.Text == "")
+            {
+                mf.Disc = 0;
+            }
+            else
+            {
+                try
+                {
+                    mf.Disc = Convert.ToUInt32(discNum.Text);
+                }
+                catch
+                {
+                    mf.Disc = 0;
+                }
+            }
+        }
+
+        private void trackNum_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (trackNum.Text == null || trackNum.Text == "")
+            {
+                mf.Track = 0;
+            }
+            else
+            {
+                try
+                {
+                    mf.Track = Convert.ToUInt32(trackNum.Text);
+                }
+                catch
+                {
+                    mf.Track = 0;
+                }
+            }
+        }
+
     }
 }

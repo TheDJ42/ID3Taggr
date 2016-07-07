@@ -10,8 +10,7 @@
         <Menu x:Name="menu" DockPanel.Dock="Top" Margin="0,0,0,339">
             <MenuItem Header="_File">
                 <MenuItem Header="Open" HorizontalAlignment="Left" Width="145" Click="MenuItem_Click_1"/>
-                <MenuItem Header="Save" HorizontalAlignment="Left" Width="145"/>
-                <MenuItem Header="Save As" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem Header="Save" HorizontalAlignment="Left" Width="145" Click="Save_Click"/>
                 <MenuItem Header="Exit" HorizontalAlignment="Left" Width="145" ToolTip="Esc" Click="MenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Edit">
@@ -44,11 +43,11 @@
         <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="327,235,0,0" TextWrapping="Wrap" Text="Year: " VerticalAlignment="Top" FontSize="13.333"/>
         <TextBox x:Name="yearText" HorizontalAlignment="Left" Height="23" Margin="364,233,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" MaxLength="4" ToolTip="Year the album was released" PreviewTextInput="yearText_PreviewTextInput"/>
         <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="439,235,0,0" TextWrapping="Wrap" Text="Genre: " VerticalAlignment="Top" FontSize="13.333" />
-        <TextBox x:Name="genreText" HorizontalAlignment="Left" Height="23" Margin="486,233,0,0" Text="" VerticalAlignment="Top" Width="130" FontSize="13.333" ToolTip="Genre of the Album"/>
+        <TextBox x:Name="genreText" HorizontalAlignment="Left" Height="23" Margin="486,233,0,0" Text="" VerticalAlignment="Top" Width="130" FontSize="13.333" ToolTip="Genre of the Album" TextChanged="genreText_TextChanged"/>
         <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="387,281,0,0" TextWrapping="Wrap" Text="Disc: " VerticalAlignment="Top" FontSize="13.333"/>
-        <TextBox x:Name="discNum" HorizontalAlignment="Left" Height="23" Margin="423,278,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="25" MaxLength="2" ToolTip="Disc Number" PreviewTextInput="discNum_PreviewTextInput"/>
+        <TextBox x:Name="discNum" HorizontalAlignment="Left" Height="23" Margin="423,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="25" MaxLength="2" ToolTip="Disc Number" PreviewTextInput="discNum_PreviewTextInput" TextChanged="discNum_TextChanged"/>
         <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="471,281,0,0" TextWrapping="Wrap" Text="Track: " VerticalAlignment="Top" FontSize="13.333"/>
-        <TextBox x:Name="trackNum" HorizontalAlignment="Left" Height="23" Margin="514,278,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="25" MaxLength="2" ToolTip="Track Number" PreviewTextInput="trackNum_PreviewTextInput"/>
+        <TextBox x:Name="trackNum" HorizontalAlignment="Left" Height="23" Margin="514,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="25" MaxLength="2" ToolTip="Track Number" PreviewTextInput="trackNum_PreviewTextInput" TextChanged="trackNum_TextChanged"/>
 
     </Grid>
 </Window>
