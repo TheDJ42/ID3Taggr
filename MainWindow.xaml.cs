@@ -24,10 +24,12 @@ namespace ID3Taggr
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool files = false;
+
         public MainWindow()
         {
             InitializeComponent();
-
+            
 
 
         }
@@ -62,7 +64,7 @@ namespace ID3Taggr
                 if (result == true)
                 {
                     // Save document
-                    TagLib.File f = TagLib.File.Create(dlg.FileName);
+                    TagLib.File f = // referemce the saveFileName in the class;
 
                     f.Tag.Album = mf.Album;
                     f.Tag.Title = mf.Title;

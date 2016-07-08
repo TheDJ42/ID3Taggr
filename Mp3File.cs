@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ID3Taggr
 {
@@ -14,6 +15,7 @@ namespace ID3Taggr
 
         public uint Year { get; set; }
 
+        public string saveFileName { get; set; }
 
         public string Artist { get; set; }
 
@@ -28,6 +30,8 @@ namespace ID3Taggr
         public Mp3File(String fileName)
         {
             var file = TagLib.File.Create(fileName);
+
+            saveFileName = fileName;
 
             Title = file.Tag.Title;
 
