@@ -33,6 +33,8 @@ namespace ID3Taggr
 
             saveFileName = fileName;
 
+            Album = file.Tag.Album;
+
             Title = file.Tag.Title;
 
             Track = file.Tag.Track;

@@ -64,7 +64,8 @@ namespace ID3Taggr
                 if (result == true)
                 {
                     // Save document
-                    TagLib.File f = // referemce the saveFileName in the class;
+                    //TagLib.File.Create(dlg.FileName); is a placeholder for debugging purposes.
+                    TagLib.File f = TagLib.File.Create(dlg.FileName); // referemce the saveFileName in the class;
 
                     f.Tag.Album = mf.Album;
                     f.Tag.Title = mf.Title;
