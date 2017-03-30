@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ID3Taggr"
         mc:Ignorable="d"
-        Title="ID3TaggrV0.5-Beta" Height="396.364" Width="661.364">
+        Title="ID3TaggrV0.5-Beta" Height="396.364" Width="661.364" ResizeMode="NoResize">
     <Grid>
         <Menu x:Name="menu" DockPanel.Dock="Top" Margin="0,0,0,339">
             <MenuItem Header="_File">

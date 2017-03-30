@@ -54,16 +54,9 @@ namespace ID3Taggr
                 Genre = "";
             }
 
-            string[] artists = file.Tag.AlbumArtists;
+            Artist = file.Tag.FirstPerformer;
 
-            if (artists != null && artists.Length > 0)
-            {
-                Artist = artists[0];
-            }
-            else
-            {
-                Artist = "";
-            }
+            
         }
     }
 }

@@ -24,7 +24,7 @@ namespace ID3Taggr
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool files = false;
+        //bool files = false;
 
         public MainWindow()
         {
@@ -43,6 +43,7 @@ namespace ID3Taggr
         {
             foreach (Mp3File file in mp3Files.Items)
             {
+                file.Artist = mf.Artist;
                 file.Album = mf.Album;
                 file.Title = mf.Title;
                 file.Year = mf.Year;
